@@ -6,6 +6,7 @@ import type { Player } from '../types/session';
 import { socket } from '../services/socket';
 import { getSession } from '../api/api';
 import { colors } from '../theme/colors';
+import { BACKEND_URL } from '../config/api';
 
 type Props = StackScreenProps<RootStackParamList, 'Lobby'>;
 
@@ -17,8 +18,6 @@ type LobbyUpdatePayload = {
 type GameStartPayload = {
   sessionCode: string;
 };
-
-const BACKEND_URL = 'http://localhost:3000';
 
 export default function LobbyScreen({ route, navigation }: Props) {
   const { sessionCode, devPlayerName } = route.params;

@@ -1,9 +1,8 @@
 import type { Session } from '../types/session';
-
-const BASE_URL = 'http://localhost:3000';
+import { BACKEND_URL } from '../config/api';
 
 export async function getSession(sessionCode: string): Promise<Session> {
-  const response = await fetch(`${BASE_URL}/api/sessions/${sessionCode}`, {
+  const response = await fetch(`${BACKEND_URL}/api/sessions/${sessionCode}`, {
     credentials: 'include',
   });
   if (response.status === 404) {
@@ -16,7 +15,7 @@ export async function getSession(sessionCode: string): Promise<Session> {
 }
 
 export async function createSession(): Promise<Session> {
-  const response = await fetch(`${BASE_URL}/api/sessions`, {
+  const response = await fetch(`${BACKEND_URL}/api/sessions`, {
     method: 'POST',
     credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
