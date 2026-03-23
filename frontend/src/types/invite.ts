@@ -5,6 +5,13 @@ export type Friend = {
   username: string;
 };
 
+export type FriendRequest = {
+  id: number;
+  requesterId: string;
+  requesterUsername: string;
+  createdAt: string;
+};
+
 export type SessionInvite = {
   id: number;
   sessionCode: string;
